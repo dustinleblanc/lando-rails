@@ -1,0 +1,49 @@
+{
+  "name": "lando_example_plugin",
+  "license": "GPL-3.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lando/lando_example_plugin"
+  },
+  "bugs": {
+    "email": "you@example.com",
+    "url": "https://github.com/lando/lando_example_plugin/issues"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "nyc": {
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "test/**"
+    ],
+    "cache": true,
+    "all": true
+  },
+  "scripts": {
+    "fix": "eslint --quiet --no-ignore lib test --fix",
+    "lint": "eslint --quiet --no-ignore lib test",
+    "test:unit": "nyc --reporter=html --reporter=text mocha --timeout 5000 test/**/*.spec.js",
+    "test": "yarn lint && yarn test:unit"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-events": "^0.0.3",
+    "command-line-test": "^1.0.10",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "leia-parser": "^0.3.4",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0",
+    "sinon": "^9.0.3",
+    "sinon-chai": "^3.5.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
